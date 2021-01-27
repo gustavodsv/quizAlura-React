@@ -1,11 +1,14 @@
-import styled from 'styled-components'
-import db from '../db.json'
-import Widget from '../src/components/Widget'
-import Footer from '../src/components/Footer'
-import GithubCorner from '../src/components/GithubCorner'
-import QuizBackground from '../src/components/QuizBackground'
-import QuizLogo from '../src/components/QuizLogo'
+import React from 'react';
+import styled from 'styled-components';
+import Head from 'next/head';
+import { useRouter } from 'next/router'
 
+import db from '../db.json';
+import Widget from '../src/components/Widget';
+import Footer from '../src/components/Footer';
+import GithubCorner from '../src/components/GithubCorner';
+import QuizBackground from '../src/components/QuizBackground';
+import QuizLogo from '../src/components/QuizLogo';
 
 
 // const BackgroundImage = styled.div`
@@ -27,16 +30,42 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = React.useState('');
+  //console.log('retorno do useSate', name, setName)
+
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>A viagem de Chihiro</title>
+      </Head>
       <QuizContainer>
+      <QuizLogo/>
         <Widget>
           <Widget.Header>
-            <h1>Quiz: A viagem de Chihioro</h1>
+            <h1>A viagem de Chihiro</h1>
           </Widget.Header>
           <Widget.Content>
-            
-            <p>Teste seu conhecimento</p>
+            <p>Teste os seus conhecimentos sobre o filme: <br/> A viagem de Chihiro</p>
+            <form onSubmit={function (infosDoEvento) {
+              infosDoEvento.preventDefault();
+              router.push(`/quiz?name=${name}`);
+              //console.log('Fazendo uma submissão por meio do react');
+            }}
+            >
+              <input 
+                onChange={function (infosDoEvento){
+                  //console.log(infosDoEvento.target.value);
+                  // State
+                  //name = infosDoEvento.target.value;
+                  setName(infosDoEvento.target.value);
+                }}
+                placeholder="Diz ai seu nome..."
+              />
+              <button type="submit" disabled={name.length === 0}>
+                Olá {name}. Clique para jogar!
+              </button>
+            </form>
           </Widget.Content>
         </Widget>
 
@@ -49,7 +78,7 @@ export default function Home() {
 
         <Footer />
       </QuizContainer>
-      <GithubCorner  projectUrl="https://github.com/gustavodsv"/>
+      <GithubCorner  projectUrl="https://github.com/gustavodsv/quizAlura-React"/>
     </QuizBackground>
   )
 }

@@ -37,8 +37,29 @@ ul {
   list-style: none;
   padding: 0;
 }
+p{
+  line-height: 20px;
+}
+input {
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  color: #DDD;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0);
+}
+button{
+  margin-top:20px;
+  width: 100%;
+  height: 30px;
+  color: #FFF;
+  border: 1px solid ${({ theme }) => theme.colors.secondary};
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: ${({ theme }) => theme.colors.secondary};
+}
 `;
-
 
 Widget.Header = styled.header`
 display: flex;
