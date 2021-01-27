@@ -1,5 +1,5 @@
 {
-    "bg": "https://i.pinimg.com/originals/b0/6d/29/b06d2935ba6d9b2490d6e5907c027336.jpg",
+    "bg": "https://c4.wallpaperflare.com/wallpaper/28/987/741/chihiro-anime-hayao-miyazaki-spirited-away-wallpaper-preview.jpg",
     "title": "Título do Quiz",
     "description": "Descrição do seu quiz aqui",
     "questions": [
@@ -33,8 +33,8 @@
     ],
     "theme": {
       "colors": {
-        "primary": "#4CAF50",
-        "secondary": "#FF9800",
+        "primary": "#00bcd4",
+        "secondary": "#008394",
         "mainBg": "#1C1814",
         "contrastText": "#FFFFFF",
         "wrong": "#FF5722",
